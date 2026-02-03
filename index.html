@@ -1,90 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Vivaan ❤️ Bhoomi</title>
-
-<style>
-* {
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-}
-
-body {
-  margin: 0;
-  background: linear-gradient(135deg, #ff758c, #ff7eb3);
-  overflow: hidden;
-  text-align: center;
-  color: white;
-}
-
-/* Floating Hearts */
-.heart {
-  position: fixed;
-  bottom: -10px;
-  font-size: 20px;
-  animation: floatUp 6s linear infinite;
-}
-
-@keyframes floatUp {
-  0% { transform: translateY(0); opacity: 1; }
-  100% { transform: translateY(-100vh); opacity: 0; }
-}
-
-/* Card */
-.card {
-  background: rgba(0,0,0,0.5);
-  padding: 30px;
-  border-radius: 20px;
-  width: 90%;
-  max-width: 420px;
-  margin: 60px auto;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.4);
-}
-
-h1 {
-  margin-bottom: 10px;
-}
-
-p {
-  font-size: 17px;
-}
-
-/* Slideshow */
-.slideshow img {
-  width: 100%;
-  border-radius: 15px;
-  display: none;
-}
-
-.slideshow img.active {
-  display: block;
-}
-
-/* Buttons */
-button {
-  padding: 12px 25px;
-  font-size: 18px;
-  border-radius: 30px;
-  border: none;
-  cursor: pointer;
-}
-
-#yes {
-  background: #ff4d6d;
-  color: white;
-}
-
-#no {
-  background: #ddd;
-  color: black;
-  position: absolute;
-}
-</style>
+  <meta charset="UTF-8">
+  <title>Vivaan ❤️ Bhoomi</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
+<!-- Background Music -->
 <audio autoplay loop>
   <source src="https://files.freemusicarchive.org/storage-freemusicarchive-org/music/no_curator/Artemas/Artemas_-_me_n_my_girl.mp3">
 </audio>
@@ -100,7 +24,7 @@ button {
     <img src="img5.jpg">
   </div>
 
-  <p style="margin-top:15px;">
+  <p class="message">
     you’re the best thing that’s happened to me lately,<br>
     & i know i’m the best thing that will ever happen to you 😉
   </p>
@@ -111,47 +35,7 @@ button {
   <button id="no" onmouseover="moveNo()">No 🙃</button>
 </div>
 
-<script>
-/* Slideshow */
-let slides = document.querySelectorAll('.slideshow img');
-let index = 0;
-setInterval(() => {
-  slides[index].classList.remove('active');
-  index = (index + 1) % slides.length;
-  slides[index].classList.add('active');
-}, 2500);
-
-/* Running No Button */
-function moveNo() {
-  const no = document.getElementById("no");
-  no.style.left = Math.random() * (window.innerWidth - 100) + "px";
-  no.style.top = Math.random() * (window.innerHeight - 50) + "px";
-}
-
-/* Yes Click */
-function yesClicked() {
-  document.getElementById("card").innerHTML = `
-    <h1>YAYYYYY 💖</h1>
-    <p>
-      Happy Valentine’s Day Bhoomi 💘<br><br>
-      I choose you. Always.<br>
-      Today, tomorrow & every version of us.
-    </p>
-    <h2>Love, Vivaan ❤️</h2>
-  `;
-}
-
-/* Floating Hearts */
-setInterval(() => {
-  const heart = document.createElement("div");
-  heart.className = "heart";
-  heart.innerHTML = "💖";
-  heart.style.left = Math.random() * 100 + "vw";
-  heart.style.fontSize = (20 + Math.random() * 20) + "px";
-  document.body.appendChild(heart);
-  setTimeout(() => heart.remove(), 6000);
-}, 300);
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
+
